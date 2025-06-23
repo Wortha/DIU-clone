@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .status-pending { color: #ffa500; font-weight: bold; }
+        .status-accepted { color: #28a745; font-weight: bold; }
+        .status-rejected { color: #dc3545; font-weight: bold; }
+        .success {
+            color: #28a745;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .error {
+            color: #dc3545;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .no-data {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+        }
+        .logout {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            width: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .logout:hover {
+            background-color: #c82333;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // Check for status query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('status') === 'success') {
+                const successDiv = document.createElement('p');
+                successDiv.className = 'success';
+                successDiv.textContent = 'Application submitted successfully!';
+                document.querySelector('.container').prepend(successDiv);
+            }
+
+            // Fetch admission data
+            fetch('fetch-student-admissions.php')
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.getElementById('admissions-tbody');
+                    if (data.success && data.admissions.length > 0) {
+                        data.admissions.forEach(row => {
+                            const tr = document.createElement('tr');
+                            const statusClass = 'status-' + row.status.toLowerCase();
+                            tr.innerHTML = `
+                                <td>${row.full_name}</td>
+                                <td>${row.program}</td>
+                                <td>${row.ssc_gpa}</td>
+                                <td>${row.hsc_gpa}</td>
+                                <td class="${statusClass}">${row.status}</td>
+                            `;
+                            tbody.appendChild(tr);
+                        });
+                    } else {
+                        const noData = document.createElement('p');
+                        noData.className = 'no-data';
+                        noData.innerHTML = 'No admission form submitted. <a href="admission-form.html">Submit a form</a>.';
+                        document.querySelector('.container').appendChild(noData);
+                    }
+                })
+                .catch(error => {
+                    const errorDiv = document.createElement('p');
+                    errorDiv.className = 'error';
+                    errorDiv.textContent = 'Error loading data: ' + error.message;
+                    document.querySelector('.container').appendChild(errorDiv);
+                });
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Dashboard</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Program</th>
+                    <th>SSC GPA</th>
+                    <th>HSC GPA</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="admissions-tbody"></tbody>
+        </table>
+        <a href="logout.php" class="logout">Logout</a>
+    </div>
+</body>
+</html>
