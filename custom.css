@@ -1,0 +1,229 @@
+
+        .pt-67px {
+            padding: 75px 0;
+        }
+        .event_counter{
+            display: none;;
+        }
+        .event_counter h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #000;
+            text-transform: uppercase;
+        }
+
+        .event_counter h6 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+            margin-top: 15px;
+        }
+
+        .event_counter .btn-box {
+            margin-top: 44px;
+            gap: 16px
+        }
+
+        .event_counter .btn-outline {
+            border: 1px solid #2e3094;
+            background: white;
+            color: #2e3094;
+        }
+
+        .event_counter .btn-outline:hover {
+            border: 1px solid #ffbc42;
+            color: #ffbc42;
+        }
+
+        .event_counter .count-stat {
+            justify-content: end;
+            gap: 13px;
+            color: #232323;
+            text-align: center;
+        }
+
+        .event_counter .count-stat .stat {
+            justify-content: end;
+            gap: 13px;
+            color: #232323;
+            padding: 19px 20px;
+            text-align: center;
+            background-color: #FFBC42;
+            border-radius: 2px;
+        }
+
+        .event_counter .count-stat .stat h6 {
+            font-size: 50px;
+            font-weight: 700;
+        }
+
+        .event_counter .count-stat .stat p {
+            font-size: 19px;
+            font-weight: 500;
+        }
+        .event-description{
+            height:50px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 320px) and (max-width: 575.98px) {
+            .event_counter {
+                text-align: center;
+            }
+
+            .event_counter h2 {
+                font-size: 33px;
+            }
+
+            .event_counter .btn-box {
+                justify-content: center;
+                margin-bottom: 50px;
+            }
+
+            .event_counter .count-stat {
+                justify-content: center;
+            }
+
+            .event_counter .count-stat .stat {
+                gap: 8px;
+                padding: 10px 14px;
+            }
+
+            .event_counter .count-stat .stat h6 {
+                font-size: 24px;
+            }
+
+            .event_counter .count-stat .stat p {
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 768.98px) {
+            .event_counter {
+                text-align: center;
+            }
+
+            .event_counter .btn-box {
+                justify-content: center;
+                margin-bottom: 50px;
+            }
+
+            .event_counter .count-stat {
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 991.98px) {
+            .event_counter h2 {
+                font-size: 32px;
+            }
+
+            .event_counter h6 {
+                font-size: 14px;
+                margin-top: 9px;
+            }
+
+            .event_counter .btn-box {
+                margin-top: 30px;
+            }
+
+            .event_counter .count-stat {
+                justify-content: center;
+            }
+
+            .event_counter .count-stat .stat {
+                gap: 8px;
+                padding: 16px;
+            }
+
+            .event_counter .count-stat .stat h6 {
+                font-size: 36px;
+            }
+
+            .event_counter .count-stat .stat p {
+                font-size: 14px;
+            }
+        }
+
+        /*--------------end -------------*/
+        /*-----------alumni image cover----------------*/
+        .card-overlay{
+            position: relative;
+        }
+        .back-ground{
+            position: absolute;
+            background-color: #0b0b0b;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 100px;
+            opacity: .6;
+        }
+        .back-ground:hover{
+            opacity: .01;
+        }
+    
+
+
+    .gsc-search-button-v2 {
+        border: 0 !important;
+        margin-top: 0 !important;
+        padding: 13px 27px !important;
+    }
+
+
+
+    /* Custom styles for the big modal */
+    .modal-dialog.modal-dialog-big {
+        max-width: 90%;
+        margin: 1rem auto;
+    }
+    .modal-dialog.modal-dialog-big {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+    }
+    .modal-dialog2 {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    .modal-content {
+        height: 100%;
+        border: 0;
+        border-radius: 0;
+    }
+    .search-results {
+        height: calc(100vh - 300px) !important;
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+    .pagination-container {
+        position: absolute;
+        bottom: 20px;
+    }
+.searchable-fields{font-size: 14px}
+.searchable-title h5{font-size: 16px}
+.searchable-breadcrumb h6{font-size: 13px; color:gray}
+.searchable-fields > b{background: #2E3094; color:#fff; opacity: .9}
+.searchable-title h5 > b{background: #2E3094; color:#fff;opacity: .9}
+.searchable-fields a > b{background: #2E3094; color:#fff;opacity: .9}
+#exampleModalLabel{font-size: 16px}
+    .btn.btn-secondary {
+        height: 30px;
+        width: 30px;
+        padding: 0px;
+        margin-left: 3px;
+    }
+    /* Media query for screens with a maximum width of 600px */
+    @media screen and (max-width: 600px) {
+        .element {
+            font-size: 14px;
+        }
+    }
+    #searchOption {
+        max-height: 200px;
+        overflow-y: auto;
+        flex: fit-content;
+        margin-left: 10px; margin-right: 10px;
+    }
